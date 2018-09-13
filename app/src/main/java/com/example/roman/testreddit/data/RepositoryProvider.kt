@@ -1,4 +1,4 @@
-package com.example.roman.testreddit.data_reddit
+package com.example.roman.testreddit.data
 
 
 
