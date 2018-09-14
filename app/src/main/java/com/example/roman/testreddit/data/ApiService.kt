@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("top.json")
-    fun search(
+    fun getTop(
             @Query("limit", encoded = false) limit: Int ,
             @Query("after", encoded = false) after: String ): Observable<Child>
 
@@ -24,7 +24,7 @@ interface ApiService {
                     .baseUrl(Constants.URL)
                     .build()
 
-            return retrofit.create(ApiService::class.java);
+            return retrofit.create(ApiService::class.java)
         }
     }
 }

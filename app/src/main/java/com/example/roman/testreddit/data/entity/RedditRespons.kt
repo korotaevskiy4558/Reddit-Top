@@ -18,12 +18,11 @@ data class Data(
 
 data class Children(
     @SerializedName("kind") val kind: String,
-    @SerializedName("data") val data: Data_
+    @SerializedName("data") val reddit: Reddit
 )
 
-data class Data_(
+data class Reddit(
         @SerializedName("approved_at_utc") val approvedAtUtc: Any,
-        //
         @SerializedName("subreddit") val subreddit: String,
         @SerializedName("selftext") val selftext: String,
         @SerializedName("author_fullname") val authorFullname: String,
@@ -31,7 +30,6 @@ data class Data_(
         @SerializedName("mod_reason_title") val modReasonTitle: Any,
         @SerializedName("gilded") val gilded: Int,
         @SerializedName("clicked") val clicked: Boolean,
-        //
         @SerializedName("title") val title: String,
         @SerializedName("link_flair_richtext") val linkFlairRichtext: List<LinkFlairRichtext>,
         @SerializedName("subreddit_name_prefixed") val subredditNamePrefixed: String,
@@ -46,7 +44,6 @@ data class Data_(
         @SerializedName("link_flair_text_color") val linkFlairTextColor: String,
         @SerializedName("author_flair_background_color") val authorFlairBackgroundColor: Any,
         @SerializedName("subreddit_type") val subredditType: String,
-        //
         @SerializedName("ups") val ups: Int,
         @SerializedName("domain") val domain: String,
         @SerializedName("media_embed") val mediaEmbed: MediaEmbed,
@@ -63,7 +60,6 @@ data class Data_(
         @SerializedName("can_mod_post") val canModPost: Boolean,
         @SerializedName("score") val score: Int,
         @SerializedName("approved_by") val approvedBy: Any,
-        //
         @SerializedName("thumbnail") val thumbnail: String,
         @SerializedName("edited") val edited: Boolean,
         @SerializedName("author_flair_css_class") val authorFlairCssClass: Any,
@@ -72,7 +68,6 @@ data class Data_(
         @SerializedName("content_categories") val contentCategories: Any,
         @SerializedName("is_self") val isSelf: Boolean,
         @SerializedName("mod_note") val modNote: Any,
-        //
         @SerializedName("created") val created: Int,
         @SerializedName("link_flair_type") val linkFlairType: String,
         @SerializedName("wls") val wls: Int,
@@ -103,19 +98,15 @@ data class Data_(
         @SerializedName("mod_reason_by") val modReasonBy: Any,
         @SerializedName("removal_reason") val removalReason: Any,
         @SerializedName("link_flair_background_color") val linkFlairBackgroundColor: String,
-        //
         @SerializedName("id") val id: String,
         @SerializedName("report_reasons") val reportReasons: Any,
-        //
         @SerializedName("author") val author: String,
         @SerializedName("num_crossposts") val numCrossposts: Int,
-        //
         @SerializedName("num_comments") val numComments: Int,
         @SerializedName("send_replies") val sendReplies: Boolean,
         @SerializedName("whitelist_status") val whitelistStatus: String,
         @SerializedName("mod_reports") val modReports: List<Any>,
         @SerializedName("author_flair_text_color") val authorFlairTextColor: Any,
-        //
         @SerializedName("permalink") val permalink: String,
         @SerializedName("parent_whitelist_status") val parentWhitelistStatus: String,
         @SerializedName("stickied") val stickied: Boolean,

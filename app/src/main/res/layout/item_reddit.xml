@@ -3,24 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:layout_marginTop="8dp">
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"/>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|left"
+            android:layout_gravity="start"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:layout_marginStart="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rating"
+                android:text="@string/rating"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -28,9 +33,7 @@
                 android:id="@+id/tv_item_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:gravity="center_horizontal"
-                android:text="126K"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -42,19 +45,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="top|right">
+            android:layout_gravity="top|end"
+            android:layout_marginEnd="16dp">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="8dp">
+                android:paddingTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="4dp"
                     android:maxLength="10"
-                    android:text="subreddit:"
+                    android:text="@string/subreddit"
                     android:textStyle="bold"
                     android:textColor="@color/black" />
 
@@ -62,17 +66,16 @@
                     android:id="@+id/tv_item_subreddit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
                     android:maxLength="10"
-                    android:text="game"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="4dp"
                     android:maxLength="10"
-                    android:text="name:"
+                    android:text="@string/name"
                     android:textStyle="bold"
                     android:textColor="@color/black" />
 
@@ -80,8 +83,8 @@
                     android:id="@+id/tv_item_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="4dp"
-                    android:text="jay_z"
+                    android:layout_marginEnd="4dp"
+                    android:maxLength="10"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -89,9 +92,8 @@
                 android:id="@+id/tv_item_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginRight="4dp"
-                android:text="1568578987"
+                android:layout_gravity="end"
+                android:textStyle="bold"
                 android:textColor="@color/black" />
         </LinearLayout>
 
@@ -108,8 +110,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:scaleType="centerCrop"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -121,15 +122,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginLeft="8dp"
-                android:text="xcgfdgdfgdfgdfgfdgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgdfgfdgdfg" />
-
+                android:layout_marginRight="8dp"
+                android:maxLength="100"
+                android:textColor="@color/black"/>
             <TextView
                 android:id="@+id/tv_item_num_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
+                android:layout_gravity="bottom|end"
                 android:layout_margin="8dp"
-                android:text="5.6K Comments" />
+                android:textStyle="bold"
+                android:textColor="@color/black" />
         </FrameLayout>
 
 
