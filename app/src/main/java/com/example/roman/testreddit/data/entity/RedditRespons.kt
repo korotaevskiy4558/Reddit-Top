@@ -61,7 +61,7 @@ data class Reddit(
         @SerializedName("score") val score: Int,
         @SerializedName("approved_by") val approvedBy: Any,
         @SerializedName("thumbnail") val thumbnail: String,
-        @SerializedName("edited") val edited: Boolean,
+//        @SerializedName("edited") val edited: Boolean,
         @SerializedName("author_flair_css_class") val authorFlairCssClass: Any,
         @SerializedName("author_flair_richtext") val authorFlairRichtext: List<Any>,
         @SerializedName("post_hint") val postHint: String,
