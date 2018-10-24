@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -32,6 +33,7 @@ class MainActivity(val presenter: MainContract.Presenter = MaintPresenter()) : A
         swipeRefreshLayout = this.srl_main
         swipeRefreshLayout.setOnRefreshListener(this)
         initRecyclerView()
+
 
     }
 
