@@ -25,8 +25,25 @@ android {
 }
 
 dependencies {
+    def retrofitVersion = '2.3.0'
+    def okhttpVersion = '3.9.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation project(":domain")
+    //RX
+    implementation "io.reactivex.rxjava2:rxjava:2.1.8"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    //HttpOk
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    annotationProcessor 'com.google.auto.value:auto-value:1.5.2'
+    compileOnly 'com.jakewharton.auto.value:auto-value-annotations:1.5'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
