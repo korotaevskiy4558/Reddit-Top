@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.net
 
 import com.example.data.entity.Child
 import io.reactivex.Observable

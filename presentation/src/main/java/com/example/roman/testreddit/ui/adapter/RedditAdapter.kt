@@ -1,13 +1,13 @@
-package com.example.roman.testreddit.presentation.adapter
+package com.example.roman.testreddit.ui.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.example.domain.model.Reddit
 import com.example.roman.testreddit.R
-import com.example.roman.testreddit.data.entity.Result
 
 class RedditAdapter() : RecyclerView.Adapter<RedditHolder>() {
-    var items:  MutableList<Result> = mutableListOf()
+    var items:  MutableList<Reddit> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RedditHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -24,14 +24,14 @@ class RedditAdapter() : RecyclerView.Adapter<RedditHolder>() {
         holder.bindView(items.get(position))
     }
 
-    fun addData(listReddit: MutableList<Result>){
+    fun addData(listReddit: MutableList<Reddit>){
         val curSize: Int = itemCount
         items.addAll(listReddit)
         notifyItemRangeInserted(curSize, items.size - 1)
 
     }
 
-    fun refreshData(listReddit: MutableList<Result>){
+    fun refreshData(listReddit: MutableList<Reddit>){
         items.clear()
         items.addAll(listReddit)
         notifyDataSetChanged()

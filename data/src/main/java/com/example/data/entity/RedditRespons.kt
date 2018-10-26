@@ -17,10 +17,10 @@ data class Data(
 
 data class Children(
         @SerializedName("kind") val kind: String,
-        @SerializedName("data") val reddit: Reddit
+        @SerializedName("data") val reddit: RedditNet
 )
 
-data class Reddit(
+data class RedditNet(
         @SerializedName("approved_at_utc") val approvedAtUtc: Any,
         @SerializedName("subreddit") val subreddit: String,
         @SerializedName("selftext") val selftext: String,

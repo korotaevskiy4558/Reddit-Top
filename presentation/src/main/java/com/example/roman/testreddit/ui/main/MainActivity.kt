@@ -1,21 +1,25 @@
-package com.example.roman.testreddit.presentation
+package com.example.roman.testreddit.ui.main
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.domain.model.Reddit
 import com.example.roman.testreddit.R
-import com.example.roman.testreddit.data.entity.Result
-
-import com.example.roman.testreddit.presentation.adapter.RedditAdapter
+import com.example.roman.testreddit.ui.adapter.RedditAdapter
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
-class MainActivity(val presenter: MainContract.Presenter = MaintPresenter()) : AppCompatActivity(), MainContract.View,  SwipeRefreshLayout.OnRefreshListener {
+class MainActivity(
+//        val presenter: MainContract.Presenter = MaintPresenter()
+) : DaggerAppCompatActivity(), MainContract.View,  SwipeRefreshLayout.OnRefreshListener {
+
+    @Inject
+    internal lateinit var _presenter: MainContract.Presenter
 
     lateinit var redditAdapter: RedditAdapter
     lateinit var layoutManager: RecyclerView.LayoutManager
@@ -48,17 +52,17 @@ class MainActivity(val presenter: MainContract.Presenter = MaintPresenter()) : A
                 super.onScrolled(recyclerView, dx, dy)
                 val totalItemCount: Int = redditAdapter.itemCount - 1
                 val lastVisiblePosition: Int = (layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
-                presenter.loadIfNeed(lastVisiblePosition, totalItemCount)
+                _presenter.loadIfNeed(lastVisiblePosition, totalItemCount)
             }
         })
     }
 
-    override fun setItemList(list: MutableList<Result>) {
+    override fun setItemList(list: MutableList<Reddit>) {
         redditAdapter.addData(list)
 
     }
 
-    override fun setNewItem(list: MutableList<Result>) {
+    override fun setNewItem(list: MutableList<Reddit>) {
         redditAdapter.refreshData(list)
     }
 
@@ -73,7 +77,7 @@ class MainActivity(val presenter: MainContract.Presenter = MaintPresenter()) : A
     }
 
     override fun onRefresh() {
-        presenter.refreshData()
+        _presenter.refreshData()
     }
 
     override fun showSwipeLoader(show: Boolean) {
@@ -86,12 +90,14 @@ class MainActivity(val presenter: MainContract.Presenter = MaintPresenter()) : A
 
     override fun onStart() {
         super.onStart()
-        presenter!!.attachView(this)
-        presenter.getRedditList()
+        _presenter.apply {
+            attachView(this@MainActivity)
+            getRedditList()
+        }
     }
 
     override fun onDestroy() {
-        presenter.detachView()
+        _presenter.detachView()
         super.onDestroy()
     }
 

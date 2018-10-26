@@ -1,4 +1,4 @@
-package com.example.roman.testreddit.presentation.adapter
+package com.example.roman.testreddit.ui.adapter
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -7,16 +7,16 @@ import android.support.customtabs.CustomTabsIntent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.bumptech.glide.Glide
-import com.example.roman.testreddit.Constants
+import com.example.domain.model.Reddit
 import com.example.roman.testreddit.R
-import com.example.roman.testreddit.data.entity.Result
 import kotlinx.android.synthetic.main.item_reddit.view.*
 
 class RedditHolder(itemView: View, val context: Context) : RecyclerView.ViewHolder(itemView) {
 
     val time: Long = System.currentTimeMillis() / 1000
+    val URL = "https://www.reddit.com/"
 
-    fun bindView(result: Result) {
+    fun bindView(result: Reddit) {
         this.itemView.tv_item_rating.setText(sizeCount(result.ups))
         this.itemView.tv_item_subreddit.setText(result.subreddit)
         this.itemView.tv_item_name.setText(result.author)
@@ -37,7 +37,7 @@ class RedditHolder(itemView: View, val context: Context) : RecyclerView.ViewHold
         else return ((count / 1000).toString() + "K")
     }
 
-    fun getTime(result: Result): String {
+    fun getTime(result: Reddit): String {
         val postTime: Long = Math.round((time - result.created).toDouble() / 60 / 60 ) + 8
         return ((postTime).toString() + " hour ago")
     }
@@ -46,7 +46,7 @@ class RedditHolder(itemView: View, val context: Context) : RecyclerView.ViewHold
         val builder: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
         builder.setToolbarColor(context.getColor(R.color.colorPrimary))
         builder.setCloseButtonIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.back))
-        builder.build().launchUrl(context, Uri.parse(Constants.URL + link))
+        builder.build().launchUrl(context, Uri.parse(URL + link))
     }
 
 
