@@ -34,18 +34,18 @@ class RedditHolder(itemView: View, val context: Context) : RecyclerView.ViewHold
     fun sizeCount(count: Int): String {
         val length: Int = count.toString().length
         if (length < 4) return count.toString()
-        else return ((count / 1000).toString() + "K")
+        else return ((count / 1000).toString() + context.getString(R.string.K))
     }
 
     fun getTime(result: Reddit): String {
-        val postTime: Long = Math.round((time - result.created).toDouble() / 60 / 60 ) + 8
-        return ((postTime).toString() + " hour ago")
+        val postTime: Long = Math.round((time - result.created).toDouble() / 60 / 60 )
+        return ((postTime).toString() + context.getString(R.string.hour_ago))
     }
 
     fun openItem(link: String) {
         val builder: CustomTabsIntent.Builder = CustomTabsIntent.Builder()
         builder.setToolbarColor(context.getColor(R.color.colorPrimary))
-        builder.setCloseButtonIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.back))
+        builder.setCloseButtonIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_arrow_back))
         builder.build().launchUrl(context, Uri.parse(URL + link))
     }
 

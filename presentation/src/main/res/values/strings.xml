@@ -4,4 +4,6 @@
     <string name="rating">Rating</string>
     <string name="subreddit">subreddit:</string>
     <string name="name">name:</string>
+    <string name="K">K:</string>
+    <string name="hour_ago"> hour ago:</string>
 </resources>

@@ -68,5 +68,9 @@ constructor(val loadRedditTopUseCase: LoadRedditTopUseCase) : MainContract.Prese
             mView!!.showSwipeLoader(isLoad)
         }
 
+        override fun onError(e: Throwable) {
+            mView!!.showMassage("error")
+        }
+
     }
 }
